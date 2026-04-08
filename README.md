@@ -1,1 +1,16 @@
-# Staff
+return {
+    "gennadios76", "theproguy12992", "7illix770", 
+    "blackbullet223", "Narutonxy96", "SigmaAlpha1901",
+    "kv_fradd", "barknobyte", "aabakk8", 
+    "ajbigjohnsonmcgee832", "hekdsi1", "Kuzamaui", 
+    "siddiq2701_alt",
+    "Ujwalwarrior2341", "Yyyytafesh", "Arize_Igris",
+    "aabakk1", "Luffy66590", "valentijn20120", 
+    "Oigaboogia",
+    "monrayo122", "Kitelaku", "coolkid222183", 
+    "slashermainforsake", "pllpo56p", "karamjamal009",
+    "chickennuggte223", "Gamesigost6565", 
+    "Mrs1663", "Harradippuason", "Ronsld82", "4u3rhw", 
+    "theprohaha98", "Jaylinhunt216", "masterBlaither",
+    "BruhYoualready1", "lily_omg54321"
+}
