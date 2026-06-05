@@ -26,6 +26,7 @@ local BLACKLIST = {
     ["MONIHD6"]               = "You are using cracked version of molyn - go appeal in discord (itsmolyn)",
     ["lXxxEvaXxx"]            = "You are using cracked version of molyn - go appeal in discord (itsmolyn)",
     ["NefariousBoyQ"]         = "cracked or old version of molyn - go appeal in discord",
+    ["devil_kidds"]           = "You are banned from using this script",
 }
 
 local BANNED_USERIDS = {}
