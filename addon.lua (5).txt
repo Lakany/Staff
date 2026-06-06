@@ -2,7 +2,7 @@ local Players = game:GetService("Players")
 local player  = Players.LocalPlayer
 
 local BLACKLIST = {
-    ["ONIRYTC"]               = "You are banned from using this script",
+    ["EMPTY"]               = "You are banned from using this script",
     ["zaman544"]              = "You are banned from using this script",
     ["HAMACFA"]               = "You are banned from using this script",
     ["fjffuj8"]               = "You are banned from using this script",
