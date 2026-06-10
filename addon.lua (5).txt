@@ -1,8 +1,8 @@
 local Players = game:GetService("Players")
-local player  = Players.LocalPlayer
+local player = Players.LocalPlayer
 
 -- ══════════════════════════════════════════════
---   HWID BAN LIST
+--   HWID Ban List
 -- ══════════════════════════════════════════════
 local HWID_BLACKLIST = {
     ["EMPTY_HWID_1"] = "You are banned from using this script",
@@ -44,50 +44,50 @@ if hwidReason then
 end
 
 -- ══════════════════════════════════════════════
---   USERNAME → USERID BAN LIST
+--   Username Ban List
 -- ══════════════════════════════════════════════
-local BLACKLIST = {
-    ["EMPTY"]               = "You are banned from using this script",
-    ["zaman544"]            = "You are banned from using this script",
-    ["HAMACFA"]             = "You are banned from using this script",
-    ["fjffuj8"]             = "You are banned from using this script",
-    ["me_hahahahahhahaha"]  = "banned permanently",
-    ["pacificforehead"]     = "You are banned from using this script",
-    ["darkness123600"]      = "You are banned from using this script",
-    ["BloxyOrblox"]         = "BANNED PERMANENTLY - contact coco_w12345 to appeal",
-    ["Badrtalal12345"]      = "bypassing not allowed",
-    ["cola_bola99"]         = "You are banned from using this script",
-    ["Haiderfire15"]        = "BANNED PERMANENTLY - contact coco_w12345 to appeal",
-    ["AAAAAAAAZ164"]        = "You are banned - contact coco_w12345 to appeal",
-    ["10450989123"]         = "You are banned from using this script",
-    ["gazoeliii"]           = "cracked version - go appeal in discord",
-    ["SilliestZel"]         = "You are banned from using this script",
-    ["soag640"]             = "BANNED PERMANENTLY FOR SCAMMING",
-    ["Rivals28470"]         = "You are banned - contact coco_w12345 to appeal",
-    ["CAXAPOOK_61"]         = "cracked version - go appeal in discord",
-    ["WTBlows"]             = "You are banned from using this script",
-    ["brocomestai23"]       = "you are using cracked molyn - go appeal in discord",
-    ["GOT_SAIF"]            = "You are banned from using this script",
-    ["MONIHD6"]             = "You are using cracked version of molyn - go appeal in discord (itsmolyn)",
-    ["lXxxEvaXxx"]          = "You are using cracked version of molyn - go appeal in discord (itsmolyn)",
-    ["NefariousBoyQ"]       = "cracked or old version of molyn - go appeal in discord",
-    ["devil_kidds"]         = "You are banned from using this script",
-    ["ahlawy_20"]           = "You are banned from using this script",
-    ["karamjamal009"]       = "You are banned from using this script",
-    ["AHEAD_NO"]            = "You are banned from using this script",
+local bannedUsers = {
+    ["EMPTY"]              = "You are banned from using this script",
+    ["zaman544"]           = "You are banned from using this script",
+    ["HAMACFA"]            = "You are banned from using this script",
+    ["fjffuj8"]            = "You are banned from using this script",
+    ["me_hahahahahhahaha"] = "banned permanently",
+    ["pacificforehead"]    = "You are banned from using this script",
+    ["darkness123600"]     = "You are banned from using this script",
+    ["BloxyOrblox"]        = "BANNED PERMANENTLY - contact coco_w12345 to appeal",
+    ["Badrtalal12345"]     = "bypassing not allowed",
+    ["cola_bola99"]        = "You are banned from using this script",
+    ["Haiderfire15"]       = "BANNED PERMANENTLY - contact coco_w12345 to appeal",
+    ["AAAAAAAAZ164"]       = "You are banned - contact coco_w12345 to appeal",
+    ["10450989123"]        = "You are banned from using this script",
+    ["gazoeliii"]          = "cracked version - go appeal in discord",
+    ["SilliestZel"]        = "You are banned from using this script",
+    ["soag640"]            = "BANNED PERMANENTLY FOR SCAMMING",
+    ["Rivals28470"]        = "You are banned - contact coco_w12345 to appeal",
+    ["CAXAPOOK_61"]        = "cracked version - go appeal in discord",
+    ["WTBlows"]            = "You are banned from using this script",
+    ["brocomestai23"]      = "you are using cracked molyn - go appeal in discord",
+    ["GOT_SAIF"]           = "You are banned from using this script",
+    ["MONIHD6"]            = "You are using cracked version of molyn - go appeal in discord (itsmolyn)",
+    ["lXxxEvaXxx"]         = "You are using cracked version of molyn - go appeal in discord (itsmolyn)",
+    ["NefariousBoyQ"]      = "cracked or old version of molyn - go appeal in discord",
+    ["devil_kidds"]        = "You are banned from using this script",
+    ["ahlawy_20"]          = "You are banned from using this script",
+    ["karamjamal009"]      = "You are banned from using this script",
+    ["AHEAD_NO"]           = "You are banned from using this script",
 }
 
-local BANNED_USERIDS = {}
+local bannedIds = {}
 local pending = 0
 
-for username, reason in pairs(BLACKLIST) do
+for username, reason in pairs(bannedUsers) do
     pending = pending + 1
     task.spawn(function()
         local ok, uid = pcall(function()
             return Players:GetUserIdFromNameAsync(username)
         end)
         if ok and uid and uid > 0 then
-            BANNED_USERIDS[uid] = reason
+            bannedIds[uid] = reason
         end
         pending = pending - 1
     end)
@@ -98,18 +98,15 @@ while pending > 0 and (tick() - t0) < 8 do
     task.wait(0.05)
 end
 
-local _protected = BANNED_USERIDS
-BANNED_USERIDS = setmetatable({}, {
+local _protected = bannedIds
+bannedIds = setmetatable({}, {
     __index     = function(_, k) return _protected[k] end,
     __newindex  = function() error("Blacklist is protected!") end,
     __metatable = "Locked by MOLYN Hub"
 })
 
--- ══════════════════════════════════════════════
---   FINAL CHECK
--- ══════════════════════════════════════════════
-local userIdReason = _protected[player.UserId]
-local finalReason  = hwidReason or userIdReason
+local userReason = _protected[player.UserId]
+local finalReason = hwidReason or userReason
 
 if finalReason then
     pcall(function()
