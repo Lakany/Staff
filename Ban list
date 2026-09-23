@@ -5,7 +5,7 @@ local player = Players.LocalPlayer
 --   HWID Ban List
 -- ══════════════════════════════════════════════
 local HWID_BLACKLIST = {
-    ["EMPTY_HWID_1"] = "You are banned from using this script",
+    ["f24cf5dad6ca201ef135e7be37a8e666d52e90a49604f1cf5222c750cf69f93b"] = "يلا انقلع من هنا لا اهين جدك. وش هو الي (السكربت خرا فيه قران) خرا عليك يا غبي",
     ["b3335b79712be86f130ec335e3e6b519c9fb534d3df82c6bf9be60f054d8bacf"] = "You are banned from using this script",
     ["3ab4e1a992096c7ccb418ca65133ca3939d2a61735e138abdf83c8297c9138f1"] = "You are banned from using this script",
 }
